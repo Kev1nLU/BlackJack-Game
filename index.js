@@ -6,11 +6,13 @@ let cards = document.getElementById("cards-el")
 //html sum element definition
 let sumEl = document.getElementById("sum-el")
 //html sum element definition
-let messageEl = document.getElementById("messages-el")
+let messageEl = document.getElementById("message-el")
 //html element for the buttons container
 let btnContainer = document.getElementById("btn-container")
 //html start button element definition
 let start = document.getElementById("btn-start")
+//html restart button element definition
+let btnrestart = document.getElementById("btn-reset")
 //html start button element definition
 let btnnewcard = document.getElementById("btn-newcard")
 // Sum of the first two cards
@@ -40,16 +42,16 @@ function startGame(){
         btnContainer.style.order = "2"
         btnnewcard.style.visibility = "visible"
     } else if (sum === 21) {
-        message = "Wohoo! You've got Blackjack! "
+        message = "Wohoo! You've got Blackjack! You WIN "
         hasBlackJack = true
     } else {
         message = "You're out of the game! "
-        isAlive = false
+        isAlive = false 
     }
- console.log(message)
 }
 
 function check(){
+  
     if (sum <= 20) {
         message = "Do you want to draw a new card? "
         messageEl.textContent = message
@@ -59,10 +61,13 @@ function check(){
         message = "Wohoo! You've got Blackjack! "
         hasBlackJack = true
         messageEl.textContent = message
+        btnnewcard.disabled = true;
     } else {
         message = "You're out of the game! "
         isAlive = false
         messageEl.textContent = message
+        btnnewcard.disabled = true;
+        btnnewcard.style.opacity = 0.9;
     }
     console.log(message)
 }
@@ -78,12 +83,15 @@ function sumnewCard(){
 }
 
 function reset(){
+
     sumEl.textContent = "Sum: "
     cards.textContent = "Cards: "
     start.style.visibility = "visible"
     btnnewcard.style.visibility = "hidden"
     messageEl.textContent = ""
     sum = 0
+    btnnewcard.disabled = false;
+    btnnewcard.style.opacity =1 ;
 }
 
 /**
