@@ -31,21 +31,21 @@ function newCard(){
 // 2. Create a startGame() function. Move the conditional
 // below (line 11-20) inside the body of the function.
 function startGame(){
-
+    start.disabled = true
+    start.style.opacity = 0.8;
     cards.textContent +=" "+firstCard+" - "+ secondCard
     sum = firstCard + secondCard
     sumEl.textContent += sum
     if (sum <= 20) {
         message = "Do you want to draw a new card? "
         messageEl.textContent = message
-        start.style.visibility = "hidden"
         btnContainer.style.order = "2"
         btnnewcard.style.visibility = "visible"
     } else if (sum === 21) {
-        message = "Wohoo! You've got Blackjack! You WIN "
+        message =  "🂥 Wohoo! You've got Blackjack! You WIN 🂱"
         hasBlackJack = true
     } else {
-        message = "You're out of the game! "
+        message = "You're out of the game!  "
         isAlive = false 
     }
 }
@@ -55,15 +55,15 @@ function check(){
     if (sum <= 20) {
         message = "Do you want to draw a new card? "
         messageEl.textContent = message
-        start.style.visibility = "hidden"
+        start.disabled = false;
         btnnewcard.style.visibility = "visible"
     } else if (sum === 21) {
-        message = "Wohoo! You've got Blackjack! "
+        message = "🂥 Wohoo! You've got Blackjack! 🂥"
         hasBlackJack = true
         messageEl.textContent = message
         btnnewcard.disabled = true;
     } else {
-        message = "You're out of the game! "
+        message = "You're out of the game! 🃏 "
         isAlive = false
         messageEl.textContent = message
         btnnewcard.disabled = true;
@@ -91,6 +91,8 @@ function reset(){
     messageEl.textContent = ""
     sum = 0
     btnnewcard.disabled = false;
+    start.disabled = false;
+    start.style.opacity = 1;
     btnnewcard.style.opacity =1 ;
 }
 
