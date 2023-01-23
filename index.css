@@ -1,0 +1,54 @@
+body {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', Arial, sans-serif;
+    background-image: url("images/table.png");
+    background-size: cover;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+}
+
+h1 {
+    color: goldenrod;
+    align-self: center;
+    
+}
+
+#message-el {
+    font-style: italic;
+}
+
+/* 
+3. Style the button according to the provided design
+text color - #016f32
+width      - 150px
+background - goldenrod
+ */
+ 
+button {
+    color: green;
+    width:  150px;
+    background: goldenrod;
+}
+
+#btn-newcard {
+    visibility: hidden;
+    position: relative;
+}
+
+#btn-start {
+    visibility: visible;
+}
+
+#btn-container {
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+#btn-reset {
+    float: left;
+    margin-left: 15px;
+} 
+
+/*#Message {
+    font
+
+}*/
